@@ -1,0 +1,224 @@
+openapi: 3.0.0
+info:
+  title: Kanaban App API specification
+  description: The API Specification for the MAD II final project
+
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/
+paths:
+  /api/login:
+    description: End point to handle auth
+    post:
+      description: To log-in the user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: Hanani
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Successfully login
+        '500':
+          description: Internal Server Error
+        '400':
+          description: Bad request
+           
+  /api/export/card/{card_id}:
+    description: End point to export a card based on card_id of the current user
+    get:
+      description: Operation to export a card.
+      parameters:
+        - in: path 
+          name: card_id
+          required: true
+          schema: 
+            type: integer
+            example: 1
+
+      responses:
+         '200':
+           description: Request Successful
+         '500':
+           description: Internal Server Error
+         '404':
+           description: Card not found.
+                   
+       
+           
+  /api/export/list/{list_id}:
+    description: End point to export a list and its constituent cards
+    get:
+      description: Operation to export a list
+      parameters:
+        - in: path
+          name: list_id
+          required: true
+          schema:
+            type: integer
+            example: 201
+
+      responses:
+        '200':
+          description: Request Successful
+        '500':
+          description: Internal Server Error
+        '404':
+          description: List not found
+          
+        
+  /api/lists:
+    description: End point to get all the lists and the cards belonging to a user.
+    get:
+      description: Get all the lists and the constituent cards.
+      responses:
+        '200':
+          description: Request Successful
+        '500':
+          description: Internal Server Error
+          
+          
+  /api/list/{list_id}:
+    description: End point to read, update and delete a list
+    get:
+      description: Operation to Read list resource.
+      parameters:
+        - in: path
+          name: list_id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      responses:
+        '200':
+          description: Request Successful
+        '500':
+          description: Internal Server Error
+        '404':
+          description: Tracker not found
+
+    put:
+      description: Operation to update the list resource.
+      parameters:
+        - in: path
+          name: list_id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      requestBody:
+        content:
+          application/json:
+        
+      responses:
+        '200':
+          description: Successfuly updated
+        '404':
+          description: List not found
+        '500':
+          description: Internal Server Error
+
+    delete:
+      description: Operation to delete the list resource
+      parameters:
+        - in: path
+          name: list_id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      responses:
+        '200':
+          description: Successfully Deleted
+        '500':
+          description: Intenal Server Error
+         
+  /api/card/{card_id}:
+    description: End point to read, update and delete a card
+    get:
+      description: Operation to Read card resource.
+      parameters:
+        - in: path
+          name: card_id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      responses:
+        '200':
+          description: Request Successful
+        '500':
+          description: Internal Server Error
+        '404':
+          description: card not found
+
+    put:
+      description: Operation to update the card resource.
+      parameters:
+        - in: path
+          name: card_id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      requestBody:
+        content:
+          application/json:
+        
+      responses:
+        '200':
+          description: Successfuly updated
+        '404':
+          description: card not found
+        '500':
+          description: Internal Server Error
+
+    delete:
+      description: Operation to delete the card resource
+      parameters:
+        - in: path
+          name: list_id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      responses:
+        '200':
+          description: Successfully Deleted
+        '500':
+          description: Intenal Server Error
+
+
+  /api/list:
+    description: End point to create list
+    post:
+      description: Operation to create the list
+
+      responses:
+        '201':
+          description: Successfully Created
+
+        '500':
+          description: Internal Server Error
+        '400':
+          description: Bad request
+
+  /api/card:
+    description: End point to create card
+    post:
+      description: Operation to create the card
+
+      responses:
+        '201':
+          description: Successfully Created
+
+        '500':
+          description: Internal Server Error
+        '400':
+          description: Bad request

@@ -1,0 +1,7 @@
+GET http://localhost:5000/api/card/1 HTTP/1.1
+Authentication-Token: WyJhOTY5NmY5ODM3NTY0ZTU0YmEwOTExYmFhMDkxYWM1OSJd.Y6XtMQ.SGaqgEcNUfZOdZlcs8PdGwdFj4o
+content-type: application/json
+
+{
+    "completed": "true"
+}

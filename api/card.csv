@@ -1,0 +1,2 @@
+_sa_instance_state,completed,id,created_at,deadline,list_id,completed_at,title,content,last_updated_at,user_id
+<sqlalchemy.orm.state.InstanceState object at 0x7f399c719e10>,False,8,2023-01-15 14:30:38,2023-01-15 23:59:00,2,,List-3 Card-3,The first card of third list,2023-01-15 16:48:16,1

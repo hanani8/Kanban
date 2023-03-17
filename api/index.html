@@ -1,0 +1,17 @@
+<html>
+
+<head>
+    <script>
+        const eventSource = new EventSource("http://localhost:5000/stream")
+        eventSource.onmessage = function (e) {
+            const targetContainer = document.getElementById('target_div');
+            targetContainer.innerText = e.data;
+        };
+    </script>
+</head>
+
+<body>
+    <div id="target_div">Watch this space...</div>
+</body>
+
+</html>
