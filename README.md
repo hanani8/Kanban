@@ -5,6 +5,9 @@
 
 KANBANV2 is a project designed to replicate a Kanban board system. It utilizes a modern technology stack, including Vue 2 for the frontend, Flask for the backend, Celery for asynchronous job processing, and Redis for caching. Additionally, Flask-Security is used to enhance the security of the application.
 
+![image](https://github.com/hanani8/Kanban/assets/31515421/85c08186-f0ba-4890-b802-59f8cfee92a9)
+
+
 ## Getting Started
 
 Follow these steps to set up and run KANBANV2 on your local machine:
